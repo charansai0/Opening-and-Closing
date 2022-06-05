@@ -27,64 +27,55 @@ Print the output and end the program.
 
 PROGRAM:
 ~~~
+/*
+Developed by   : V.CHARAN SAI
+Register Number: 212220240061
+*/
+~~~
+~~~
 # Import the necessary packages
 
+# Import the necessary packages
+import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import cv2
 
 # Create the Text using cv2.putText
-
-text_image = np.zeros((100,440),dtype = 'uint8')
-font = cv2.FONT_HERSHEY_SIMPLEX = 3
-cv2.putText(text_image," Aashima.S",(5,70),font,2,(255),5,cv2.LINE_AA)
-plt.title("Original Image")
-plt.imshow(text_image)
+img=np.zeros((100,400),dtype='uint8')
+font=cv2.FONT_ITALIC
+cv2.putText(img,'jithu',(5,70),font,2,(255),5,cv2.LINE_AA)
 plt.axis('off')
+plt.imshow(img)
+plt.show()
 
 # Create the structuring element
-
-kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(11,11))
+kernel=cv2.getStructuringElement(cv2.MORPH_RECT,(9,9))
 
 # Use Opening operation
-
-opening_image = cv2.morphologyEx(text_image,cv2.MORPH_OPEN,kernel)
-plt.title("Opening")
-plt.imshow(opening_image)
+image_open=cv2.morphologyEx(img,cv2.MORPH_OPEN,kernel)
 plt.axis('off')
+plt.imshow(image_open)
+plt.show()
 
 # Use Closing Operation
-
-closing_image = cv2.morphologyEx(text_image,cv2.MORPH_CLOSE,kernel)
-plt.title("Closing")
-plt.imshow(closing_image)
+image_close=cv2.morphologyEx(img,cv2.MORPH_CLOSE,kernel)
 plt.axis('off')
+plt.imshow(image_close)
+plt.show()
 ~~~
 ## Output:
 
 ### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![11](https://user-images.githubusercontent.com/94296221/172039811-142fffdb-f382-45e8-bb44-175b82b91329.png)
+
 
 ### Display the result of Opening
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![22](https://user-images.githubusercontent.com/94296221/172039813-68345889-6b9e-40df-9f4f-f4e61221b740.png)
+
 
 ### Display the result of Closing
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![3](https://user-images.githubusercontent.com/94296221/172039814-a390c7cd-0eaf-4b3d-91cf-3e6a017b2b2a.png)
+
 
 ## Result
 Thus the Opening and Closing operation is used in the image using python and OpenCV.
